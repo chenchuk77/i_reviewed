@@ -2,3 +2,6 @@ rails g model reviewer name password_digest
 rails g model book name author reviewer:references
 rails g model note title note:text book:references
 rake db:migrate
+# edit db/seeds.rb
+rake db:seed
+rails g scaffold_controller book name author
