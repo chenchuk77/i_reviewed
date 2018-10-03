@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # nested notes inside books
   # path to notes will contain also path to books !
   resources :books do
-    resources :notes
+    # no need for all 7 actions for a note
+    resources :notes, only: [:create, :destroy]
   end
 
 
