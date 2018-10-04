@@ -5,3 +5,23 @@ rake db:migrate
 # edit db/seeds.rb
 rake db:seed
 rails g scaffold_controller book name author
+# generate empty ctrl (no actions)
+# nested ctrl (in ctx of books)
+rails g controller notes 
+# add bcrypt in Gemfile
+# add has_secure_password for Reviewer model
+
+irb check authentication:
+irb(main):002:0> Reviewer.column_names
+irb(main):003:0> Reviewer.create! name: "Joe", password: "abc123"
+irb(main):006:0> joe = Reviewer.find_by name: "Joe"
+irb(main):007:0> joe.password                 ### nil
+irb(main):008:0> joe.password_digest
+
+irb(main):009:0> joe.authenticate("www")      ### nil
+irb(main):010:0> joe.authenticate("abc123")   ### joe
+
+
+irb(main):011:0> Reviewer.first.books.count
+irb(main):017:0> Reviewer.first.books.pluck :name
+

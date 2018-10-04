@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Reviewer.destroy_all
 Book.destroy_all
 
 Book.create! [
@@ -21,3 +22,13 @@ eloquent.notes.create! [
   { title: "Wow", note: "Great book to learn Ruby"},
   { title: "Funny", note: "Doesn't put you to sleep"}
 ]
+
+reviewers = Reviewer.create! [
+  { name: "Joe", password: "abc123" },
+  { name: "Jim", password: "abc123" }
+]
+
+Book.all.each do |book|
+  book.reviewer = reviewers.sample
+  book.save!
+end
