@@ -21,7 +21,6 @@ irb(main):008:0> joe.password_digest
 irb(main):009:0> joe.authenticate("www")      ### nil
 irb(main):010:0> joe.authenticate("abc123")   ### joe
 
-
 irb(main):011:0> Reviewer.first.books.count
 irb(main):017:0> Reviewer.first.books.pluck :name
 
