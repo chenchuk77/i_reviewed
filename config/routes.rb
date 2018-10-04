@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
   # nested notes inside books
   # path to notes will contain also path to books !
   resources :books do
@@ -13,6 +7,11 @@ Rails.application.routes.draw do
     resources :notes, only: [:create, :destroy]
   end
 
+  # sessions are resources, but treated as login/logout
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get    "/login"  => "sessions#new",     as: "login"
+  delete "/logout" => "sessions#destroy", as: "logout"
 
   root to: "books#index"
 end

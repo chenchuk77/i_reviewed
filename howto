@@ -11,6 +11,9 @@ rails g controller notes
 # add bcrypt in Gemfile
 # add has_secure_password for Reviewer model
 
+rails g controller sessions new create destroy
+
+
 irb check authentication:
 irb(main):002:0> Reviewer.column_names
 irb(main):003:0> Reviewer.create! name: "Joe", password: "abc123"
