@@ -28,6 +28,9 @@ git remote -v
 heroku run rake db:migrate
 heroku run rake db:seed
 
+adding will_paginate Gem
+bundle
+restart server
 
 
 
@@ -52,4 +55,9 @@ irb(main):010:0> joe.authenticate("abc123")   ### joe
 
 irb(main):011:0> Reviewer.first.books.count
 irb(main):017:0> Reviewer.first.books.pluck :name
+
+irb: pagination
+irb(main):006:0> Reviewer.first.books.all.count
+
+
 
