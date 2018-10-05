@@ -14,6 +14,32 @@ rails g controller notes
 rails g controller sessions new create destroy
 
 
+heroku:
+add pg gem instead of sqlite3
+bundle --without production
+git push origin master # save code to github
+
+heroku login
+heroku create irev-chen
+# https://irev-chen.herokuapp.com/
+# https://git.heroku.com/irev-chen.git
+git remote -v
+
+heroku run rake db:migrate
+heroku run rake db:seed
+
+
+
+
+
+
+
+
+
+
+
+
+
 irb check authentication:
 irb(main):002:0> Reviewer.column_names
 irb(main):003:0> Reviewer.create! name: "Joe", password: "abc123"
